@@ -39,3 +39,13 @@
 
     // LogLapSum ()
     // console.log(sum) (does not work, let variables are block scoped)
+
+    let lapsCompleted = 0
+
+    function addLap () {
+        lapsCompleted = lapsCompleted + 1
+    }
+    addLap ()
+    addLap ()
+    addLap ()
+    console.log(lapsCompleted)
