@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font: 300 18px Helvetica;
+            text-align: center;
+            padding: 30px;
+        }
+
+        button {
+            font: 200 16px Helvetica;
+            color: aliceblue;
+            padding: 8px;
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0px 6px rgb(0, 0, 0);
+            background-color: rgb(83, 2, 2);
+        }
+
+        button:hover {
+            background-color: rgb(158, 0, 0);
+        }
+
+        button:active {
+            background-color: rgb(158, 0, 0);
+            box-shadow: 0 2px rgb(0, 0, 0);
+            transform: translateY(4px);
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+    <title>Shoes</title>
+</head>
+<body>
+    <img src="shoes.jpg" alt="grey DC heroes shoes with red shoelace" width="400px">
+    <h1>Hero Shoes</h1>
+    <button onclick="purchase()">Purchase - $80,00</button>
+    <p id="error-el"></p>
+    <script src="error.js"></script>
+</body>
+</html>

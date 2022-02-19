@@ -1,12 +1,14 @@
 
 body {
-    background-color: rgb(43, 189, 138);
+    background-color: rgb(116, 243, 199);
     font: 300 24px Helvetica;
     text-align: center;
+    padding: 30px;
 }
 
 h1 {
     font-size: 36px;
+    margin: 0;
 }
 
 button {

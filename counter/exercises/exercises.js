@@ -75,11 +75,47 @@
         // console.log("4" + "5") //"45" string
 
     //Display welcome message to user
-        let welcomeEl = document.getElementById("welcome-el")
-        console.log(welcomeEl)
+        // let welcomeEl = document.getElementById("welcome-el")
+        // console.log(welcomeEl)
 
-        let myName = "Helena Rentschler"
-        let myGreeting = "Welcome back, "
+        // let myName = "Helena Rentschler"
+        // let myGreeting = "Welcome back, "
         
-        welcomeEl.innerText = myGreeting + myName + "!"
-        welcomeEl.innerText += " :)" // same as welcomeEl.innerText = welcomeEl.innerText + " :)"
+        // welcomeEl.innerText = myGreeting + myName + "!"
+        // welcomeEl.innerText += " :)" // same as welcomeEl.innerText = welcomeEl.innerText + " :)"
+
+// Practice
+
+    // Variables
+        // let firstName = "Helena"
+        // let lastName = "Rentschler"
+        // let fullName = firstName + " " + lastName
+        // console.log(fullName)
+
+    // Functions
+        // let yourName = "Helena"
+
+        // function sayHi() {
+        //     console.log("Hi there, " + yourName + "!")
+        // }
+        
+        // sayHi ()
+
+    // Incrementing
+        let myPoints = 3
+
+        function add3points () {
+            myPoints += 3
+        }
+
+        function remove1Point() {
+            myPoints -= 1
+        }
+
+        add3points()
+        add3points()
+        add3points()
+        remove1Point()
+        remove1Point()
+
+        console.log(myPoints) //10
