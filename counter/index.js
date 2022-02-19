@@ -1,19 +1,23 @@
 // comment a block of code selected at the same time: ctrl + k + c
 
-// initialize the count variable with 0
 let count = 0 
 
 // asking for the html document to get us the element with the "count-el" id, wich is the h2 element that displays our counting. Then, storing it in the countEl variable. 
-let countEl = document.getElementById("count-el") 
+let countEl = document.getElementById("count-el") //h2
+let saveEl = document.getElementById("save-el") //p
 
-//displays the representation of the h2 element
-console.log(countEl) 
 
 function increment() {
-    count = count + 1
-    //assigning the h2 inner text the value of count
+    count += 1
     countEl.innerText = count
 }
 
+function save() {
+    lastCount = " " + count + " - "
+    saveEl.innerText += lastCount
+}
+
+
+
 // both .log .get are types of functions that are hooked onto objects, these we call methods.
-// when we give the funtion some type of data beteen the parenthesis, we are passing an argument to the function.
+// when we give the function some type of data beteen the parenthesis, we are passing an argument to the function.
