@@ -9,12 +9,14 @@ let saveEl = document.getElementById("save-el") //p
 
 function increment() {
     count += 1
-    countEl.innerText = count
+    countEl.textContent = count
 }
 
 function save() {
-    lastCount = " " + count + " - "
-    saveEl.innerText += lastCount
+    lastCount = count + " - "
+    saveEl.textContent += lastCount
+    count = 0
+    countEl.textContent = count
 }
 
 
