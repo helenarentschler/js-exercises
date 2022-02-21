@@ -5,7 +5,7 @@ body {
     color: rgb(255, 255, 255);
     font: bold 24px "Trebuchet MS", Helvetica, sans-serif;
     text-align: center;
-    padding: 30px;
+    padding: 20px;
     margin: 0 auto;
 }
 
@@ -24,13 +24,14 @@ div {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: space-around;
+    padding: 15px 20px;
 }
 
 button {
     background-color: rgb(228, 183, 4);
     font: bold 20px "Trebuchet MS", sans-serif;
     color: rgb(0, 124, 58);
-    width: 200px;
+    width: 180px;
     padding: 8px;
     border: none;
     border-radius: 6px;
