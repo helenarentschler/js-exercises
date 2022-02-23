@@ -63,34 +63,82 @@
             // messages.pop() //deletes the last item of an array
             // console.log(messages)
         
-        // For loop: START LINE / FINISH LINE / STEP SIZE
-            // for (let count = 10; count < 21; count += 1) {
-            //     console.log(count)
+    // For loop: START LINE / FINISH LINE / STEP SIZE
+        // for (let count = 10; count < 21; count += 1) {
+        //     console.log(count)
+        // }
+
+        // for (let i = 0; i < 6; i += 1) {
+        //     console.log(i)
+        // }
+
+        // for (let i = 10; i < 101; i += 10) {
+        //     console.log(i)
+        // }
+
+        // messages.push("Awesome!")
+
+        // for loop + messages array (up there: line 53 - 64)
+            // for (let i = 0; i < messages.length; i += 1) {
+            //     console.log(messages[i])
             // }
 
-            // for (let i = 0; i < 6; i += 1) {
-            //     console.log(i)
+        // console card for loop (card array in line  49)
+            // for (let i = 0; i < cards.length; i ++) {
+            //     console.log(cards[i])
             // }
 
-            // for (let i = 10; i < 101; i += 10) {
-            //     console.log(i)
-            // }
+        // let sentence = ["Hello", "my", "name", "is", "Helena"]
+        // let greetingEl = document.getElementById("greeting-el") //p
 
-            // messages.push("Awesome!")
+        // for (let i = 0; i < sentence.length; i++) {
+        //     greetingEl.textContent += sentence[i] + " "
+        // }
+    
+    // Return values in functions
+        // let player1Time = 102
+        // let player2Time = 80
 
-            // for loop + messages array (up there: line 53 - 64)
-                // for (let i = 0; i < messages.length; i += 1) {
-                //     console.log(messages[i])
-                // }
+        // function getFastestRaceTime () {
+        //     if (player1Time < player2Time) {
+        //         return player1Time
+        //     } else if (player2Time < player1Time) {
+        //         return player2Time
+        //     } else {
+        //         return player1Time
+        //     }
+        // }
 
-            // console card for loop (card array in line  49)
-                // for (let i = 0; i < cards.length; i ++) {
-                //     console.log(cards[i])
-                // }
+        // let fastestRace = getFastestRaceTime()
+        // console.log(fastestRace)
+        // console.log(getFastestRaceTime())
 
-            let sentence = ["Hello", "my", "name", "is", "Helena"]
-            let greetingEl = document.getElementById("greeting-el") //p
+        // function getTotalRaceTime () {
+        //     return player1Time + player2Time
+        // }
 
-            for (let i = 0; i < sentence.length; i++) {
-                greetingEl.textContent += sentence[i] + " "
+        // let totalTime = getTotalRaceTime ()
+        // console.log(totalTime)
+    
+    // Random  numbers
+        //Math.random() returns a valeu between 0 and 0.999...
+        // let RandomNumber = Math.random() 
+        // console.log(RandomNumber)
+
+        // dice function: 
+        //Math.random() * 6 returns a value between 0 and 5.999...
+            // let DiceNumber = Math.random() * 6
+            // console.log(DiceNumber)
+
+        // Flooring numbers - it removes the decimals
+            // let flooredNumber = Math.floor(7.739)
+            // console.log(flooredNumber)
+        
+        // better dice function
+            function rollDice() {
+               let randomNumber = Math.floor(Math.random() * 6) + 1
+               return randomNumber
             }
+
+            let diceNumber = rollDice()
+            console.log(diceNumber)

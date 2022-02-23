@@ -1,15 +1,29 @@
-let firstCard = 11
-let secondCard = 8
-let cards = [firstCard, secondCard] //array
-let sum = firstCard + secondCard 
+let cards = [] //array
+let sum = 0
 let hasBlackJack = false
-let isAlive = true
-let message = "" //to store the message we get from conditionals and log it later
+let isAlive = false
+let message = "" 
 let messageEl = document.getElementById("message-el") // 1° p
 let cardsEl = document.getElementById("cards-el") // 2° p
-let sumEl = document.querySelector("#sum-el") // 3° p - more dinamic, so you gotta put # to specify ID
+let sumEl = document.querySelector("#sum-el") // 3° p 
+
+function getRandomCard() {
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber === 1) {
+        return 11
+    } else if (randomNumber > 10) {
+        return 10
+    } else {
+        return randomNumber
+    }
+}
 
 function startGame() {
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
+    isAlive = true
     renderGame()
 }
 
@@ -33,7 +47,7 @@ function renderGame() {
 
 
 function newCard() { 
-    let card = 1
+    let card = getRandomCard()
     sum += card 
     cards.push(card)
     renderGame()
