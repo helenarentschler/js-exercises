@@ -135,10 +135,150 @@
             // console.log(flooredNumber)
         
         // better dice function
-            function rollDice() {
-               let randomNumber = Math.floor(Math.random() * 6) + 1
-               return randomNumber
+            // function rollDice() {
+            //    let randomNumber = Math.floor(Math.random() * 6) + 1
+            //    return randomNumber
+            // }
+
+            // let diceNumber = rollDice()
+            // console.log(diceNumber)
+    
+    // Logical operators
+        // and - &&
+            // let hasCompletedCourse = true
+            // let CourseGivesCertificate = true
+
+            // if (hasCompletedCourse === true && CourseGivesCertificate === true) {
+            //     generateCertificate()
+            // } else {
+            //     console.log("You can't get a certificate")
+            // }
+
+            // function generateCertificate() {
+            //     console.log("Generating certificate...")
+            // }
+
+            // let hasSolvedChallenge = false
+            // let hasHintsLeft = false
+
+            // if (hasSolvedChallenge === false && hasHintsLeft === false) {
+            //     showSolution()
+            // }
+
+            // function showSolution() {
+            //     console.log("Showing the solution...")
+            // }
+        
+        // or - ||
+            // let likesDocumentaries = false
+            // let likesStartUps = true
+
+            // if (likesDocumentaries === true || likesStartUps === true) {
+            //     recommendMovie()
+            // }
+
+            // function recommendMovie() {
+            //     console.log("Hey! Check out this film, we think you'll like it!")
+            // }
+        
+        // objects - key-value pairs
+            // let course = {
+            //     title: "Learn CSS",
+            //     lessons: 16,
+            //     creator: "John",
+            //     length: 63,
+            //     level: 2,
+            //     isFree: true,
+            //     tags: ["HTML5", "CSS3"]
+            // }
+
+            // console.log(course.length)
+            // console.log(course.tags[1])
+            // console.log(course.tags)
+            // console.log(course["tags"]) //bracket notation
+        
+            // let castle = {
+            //     name: "San Giusto",
+            //     acceptGuest: true,
+            //     price: 180,
+            //     images: ["img/castle1.png", "img/castle2.png"]
+            // }
+
+            // console.log(castle.name)
+            // console.log(castle.images[1])
+
+// practice
+        // objects and functions
+            let person = {
+                name: "Helena",
+                age: 19,
+                country: "Brasil"
             }
 
-            let diceNumber = rollDice()
-            console.log(diceNumber)
+            function logData() {
+                console.log(person.name + " lives in " + person.country + " and is " + person.age + " years old.")
+            }
+
+            logData()
+
+        // if statements
+             let age = 66
+
+             if (age < 6) {
+                console.log("Free pass")
+             } else if (age < 18) {
+                console.log("Child discount")
+             } else if (age < 27) {
+                console.log("Student discount")
+             } else if (age < 67) {
+                console.log("Full price")
+             } else {
+                 console.log("Senior discount")
+             }
+        
+        // loops and arrays 
+             let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"]
+             largeCountries.pop()
+             largeCountries.push("Pakistan")
+             largeCountries.shift()
+             largeCountries.unshift("China")
+             console.log("The 5 largest populations in the world:")
+             for (let i = 0; i < largeCountries.length; i++) {
+                 console.log("- " + largeCountries[i])
+             }
+        
+        // logical operators
+             let dayOfMonth = 13
+             let weekDay = "friday"
+
+             if (dayOfMonth === 13 && weekDay === "friday") {
+                console.log("spooky!")
+             }
+        
+        // random numbers
+             let hands = ["rock", "paper", "scissors"]
+
+             function getHand() {   
+                let i = Math.floor(Math.random() * 3)
+                return hands[i]
+             }
+
+             console.log(getHand())
+        
+        // sorting fruits     
+        
+             let fruits = ["🍎", "🍊", "🍎", "🍎", "🍊"]
+             let appleShelf = document.getElementById("apple-shelf")
+             let orangeShelf = document.getElementById("orange-shelf")
+ 
+             function sortFruits() {
+                for (let i = 0; i < fruits.length; i++){
+                    if (fruits[i] === "🍎") {
+                        appleShelf.textContent += fruits[i]
+                    } else if (fruits[i] === "🍊") {
+                        orangeShelf.textContent += fruits[i]
+                    }
+                }
+             }
+
+             sortFruits()
