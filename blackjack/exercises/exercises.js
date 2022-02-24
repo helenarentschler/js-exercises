@@ -209,43 +209,43 @@
 
 // practice
         // objects and functions
-            let person = {
-                name: "Helena",
-                age: 19,
-                country: "Brasil"
-            }
+            // let person = {
+            //     name: "Helena",
+            //     age: 19,
+            //     country: "Brasil"
+            // }
 
-            function logData() {
-                console.log(person.name + " lives in " + person.country + " and is " + person.age + " years old.")
-            }
+            // function logData() {
+            //     console.log(person.name + " lives in " + person.country + " and is " + person.age + " years old.")
+            // }
 
-            logData()
+            // logData()
 
         // if statements
-             let age = 66
+            //  let age = 66
 
-             if (age < 6) {
-                console.log("Free pass")
-             } else if (age < 18) {
-                console.log("Child discount")
-             } else if (age < 27) {
-                console.log("Student discount")
-             } else if (age < 67) {
-                console.log("Full price")
-             } else {
-                 console.log("Senior discount")
-             }
+            //  if (age < 6) {
+            //     console.log("Free pass")
+            //  } else if (age < 18) {
+            //     console.log("Child discount")
+            //  } else if (age < 27) {
+            //     console.log("Student discount")
+            //  } else if (age < 67) {
+            //     console.log("Full price")
+            //  } else {
+            //      console.log("Senior discount")
+            //  }
         
         // loops and arrays 
-             let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"]
-             largeCountries.pop()
-             largeCountries.push("Pakistan")
-             largeCountries.shift()
-             largeCountries.unshift("China")
-             console.log("The 5 largest populations in the world:")
-             for (let i = 0; i < largeCountries.length; i++) {
-                 console.log("- " + largeCountries[i])
-             }
+            //  let largeCountries = ["Tuvalu", "India", "USA", "Indonesia", "Monaco"]
+            //  largeCountries.pop()
+            //  largeCountries.push("Pakistan")
+            //  largeCountries.shift()
+            //  largeCountries.unshift("China")
+            //  console.log("The 5 largest populations in the world:")
+            //  for (let i = 0; i < largeCountries.length; i++) {
+            //      console.log("- " + largeCountries[i])
+            //  }
         
         // logical operators
              let dayOfMonth = 13
