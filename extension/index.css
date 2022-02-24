@@ -1,0 +1,38 @@
+body {
+    margin: 0px;
+    padding: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    font: normal 16px Arial, Helvetica, sans-serif;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(82, 139, 67);
+}
+
+input:after {
+    background-color: rgb(150, 184, 192);
+}
+
+button {
+    font: bold 16px "Trebuchet MS", Helvetica, sans-serif;
+    display: block;
+    padding: 10px 20px;
+    margin: 5px 0px;
+    border: none;
+    color: rgb(255, 255, 255);
+    background-color: rgb(82, 139, 67);
+}
+
+button:hover {
+    background-color: rgb(47, 73, 40);
+}
+
+button:active {
+    background-color: rgb(47, 73, 40);
+    transform: translateY(3px);
+}
