@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 10px;
+    font: normal 16px Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -8,7 +9,7 @@ body {
 }
 
 input {
-    font: normal 16px Arial, Helvetica, sans-serif;
+    font: inherit;
     width: 100%;
     padding: 10px;
     border: 1px solid rgb(82, 139, 67);
@@ -33,6 +34,13 @@ button:hover {
 }
 
 button:active {
-    background-color: rgb(47, 73, 40);
     transform: translateY(3px);
+    background-color: rgb(47, 73, 40);
+}
+
+ul {
+    font: inherit;
+    padding: 10px;
+    margin: 10px 0;
+    list-style-type: none;
 }
