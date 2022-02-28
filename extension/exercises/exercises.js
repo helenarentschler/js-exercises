@@ -30,3 +30,13 @@
         containerEl.innerHTML += "<p>Thank you for buying!</p>"
     }
 
+// template strings (`)
+    const recipient = "James"
+    const sender = "Helena"
+    const email = `
+        Hey ${recipient}! 
+        How is it going? 
+        Cheers, ${sender}
+    `
+    console.log(email)
+
