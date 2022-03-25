@@ -339,16 +339,16 @@
         // Função como parâmetro
             // função nativa do js, ela liga um evento (como um clique no documento) a uma função.
                             //evento  função anônima
-            addEventListener('click', function() {
-                console.log('Oi!');
-            });
+            //addEventListener('click', function() {
+            //    console.log('Oi!');
+            // });
 
             // Esta função anonima e chamada de callback, pois ela ocorre depois de um evento
             function mostrarTudoBem() {
                 console.log('Tudo bem?');
             };
 
-            addEventListener('click', mostrarTudoBem);
+            // addEventListener('click', mostrarTudoBem);
 
     //retorno - se não definir return, retorna undefined
 
@@ -586,15 +586,103 @@
                 }
             }
 
-            console.log(cachorro.latir('homem'));
-  
-  
+            console.log (cachorro.latir('homem'));
 
+//Tudo é objeto
+    //string
+        var nome = 'André';
 
-
-        
+        //propriedades da string andré, herdadas do construtor string
+        console.log(nome.length); //5
+        console.log(nome.charAt(2)); // d
+        console.log(nome.replace('é', 'ei')) //Andrei
+        console.log(nome); // métodos utilizados não alteram a variável
     
+    //números
+        var altura = 1.8;
 
+        console.log(altura.toString()); // '1.8'
+        console.log(altura.toFixed()); // 2
+    
+    //funções
+        function areaTriangulo(base, altura) {
+            return (base * altura) / 2;
+        };
 
+        var stringFunction = areaTriangulo.toString();
+        console.log(stringFunction);
+        console.log(typeof stringFunction);
 
+        console.log(areaTriangulo.length); // total de parametros que pode ter
+    
+    //objeto Document (É o documento html)
 
+        //método querySelector (consulta de seletor)
+        var btn = document.querySelector('.btn');
+
+        // btn é um objeto:
+        btn.addEventListener('click', function(){
+            console.log('Clicado!')
+        })
+
+        console.log(btn.classList);
+        console.log(btn.classList.add('second')); // método do método: adiciona classe 'second' ao btn
+        console.log(btn.innerText);
+
+    //exercícios
+    //nomeie 3 propriedades ou métodos de strings
+        console.log('Helena Rentschler'.substring(0, 6)); // retorna substring 'Helena'
+        console.log('cachorro'.slice(0, 5)); // retorna 'cacho'
+        console.log('Diamante'.concat(' Rosa')); // retorna concatenação 'Diamante Rosa'
+
+    // nomeie 5 propriedades ou métodos de elementos do DOM
+        console.log(btn.parentElement); //body
+        console.log(btn.parentNode);
+
+    // busque na web um objeto (método) capaz de interagir com o clipboard, 
+    // clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
+        //https://clipboardjs.com/ (biblioteca/api js com métodos para intergair com clipboard)
+
+// Arrays
+
+    var videoGames = ['Switch', 'PS4', 'Xbox'];
+
+    console.log(videoGames[0]);
+    var ultimoItem = videoGames.pop(); //remove e retorna o ultimo item
+    console.log(ultimoItem);
+    console.log(videoGames);
+    videoGames.push('3DS'); // adiciona item ao final
+    console.log(videoGames);
+    console.log(videoGames.length);
+
+    //For loop
+        for (var numero = 0; numero <= 10; numero ++) {
+            console.log(numero);
+        };
+
+    // while loop
+        var i = 0;
+        while (i<=5) {
+            console.log(i);
+            i++;
+        };
+
+    // For loop + array
+        var cidades = ['Curitiba', 'Maceió', 'São Paulo', 'Cuiabá'];
+                            //4 - 0 1 2 3
+        for (var i = 0; i < cidades.length; i++) {
+            console.log(cidades[i]);
+        };
+
+        // break
+            for (i = 0; i < cidades.length; i++) {
+                console.log(cidades[i]);
+                if(cidades[i] === 'São Paulo'){
+                    break;
+                }
+            }
+
+    // método forEach para arrays
+        cidades.forEach(function(){
+            
+        });
