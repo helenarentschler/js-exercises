@@ -34,7 +34,8 @@
             console.log(salada)
 
             const lado = 2;
-            // lado = 3; ERRO não consigo atribuir um novo valor
+            //lado = 3; //ERRO não consigo atribuir um novo valor
+            // const lado = 3; //ERRO, não consigo redeclarar
             
             var comida;
             comida = 'frango';
@@ -579,10 +580,15 @@
                 raca: 'labrador',
                 cor: 'preto',
                 idade: 10,
-                latir(pessoa) {
-                    if (pessoa === 'homem') {
-                        return 'au au au';
-                    };
+                latir(genero, etnia, sexualidade) {
+                    if (genero === 'homem') {
+                        console.log ('au au au');
+                        if (etnia === 'caucasiano' && sexualidade === 'hétero') {
+                            console.log('nhac!')                            
+                        }
+                    } else {
+                        console.log('Oi xuxuzin :p ')
+                    }
                 }
             }
 
@@ -643,7 +649,7 @@
     // clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
         //https://clipboardjs.com/ (biblioteca/api js com métodos para intergair com clipboard)
 
-// Arrays
+// Arrays e Loops
 
     var videoGames = ['Switch', 'PS4', 'Xbox'];
 
@@ -683,6 +689,171 @@
             }
 
     // método forEach para arrays
-        cidades.forEach(function(){
-            
+                                //o parametro cidade vira dinamicamente o valor da array
+        cidades.forEach(function(cidade){
+            console.log(cidade);
         });
+
+        var frutas = ['abacaxi', 'laranja', 'limão', 'morango', 'uva'];
+
+        frutas.forEach(function(fruta, index, array){
+            console.log(fruta, index, array);
+        });
+
+    //exercicios
+        // Crie uma array com os anos que o Brasil ganhou a copa
+        // 1959, 1962, 1970, 1994, 2002
+            var vitoriasBrasil = [ 1959, 1962, 1970, 1994, 2002];
+
+        // Interaja com a array utilizando um loop, para mostrar
+        // no console a seguinte mensagem, `O brasil ganhou a copa de ${ano}`
+            for(var i = 0; i < vitoriasBrasil.length; i++) {
+                console.log(`O Brasil ganhou a copa de ${vitoriasBrasil[i]}`);
+            };
+            
+            vitoriasBrasil.forEach(function(ano){
+                console.log(`o Brasil ganhou a copa de ${ano}`);
+            });
+
+        // Interaja com um loop nas frutas abaixo e pare ao chegar em Pera
+            var frutas = ['Banana', 'Maçã', 'Pera', 'Uva', 'Melância', 'caju']
+
+            for(var i = 0; i < frutas.length; i++){
+                console.log(frutas[i])
+                if (frutas[i] === 'Pera') {
+                    break;
+                }
+            }; 
+
+        // Coloque a última fruta da array acima em uma variável,
+        // sem remover a mesma da array.
+
+        var ultimaFruta = frutas[frutas.length - 1];
+
+//Operadores de atribuição
+    var numero = 20;
+
+    console.log(numero += 10); // numero = numero + 10
+    console.log(numero -= 10); // numero = numero - 10 
+    console.log(numero /= 10); // numero = numero / 10
+    console.log(numero *= 10); // numero = numero * 10
+    console.log(numero %= 10); // numero = numero % 10
+    console.log(numero **= 10); // numero = numero ** 10
+
+    // operador ternário
+        //abreviação do if else
+        var idade = 10;
+                        //condição      // se for true // se for false atribui:
+        var podeBeber = (idade >= 18) ? 'Pode Beber.' : 'Não pode beber'
+        console.log(podeBeber);
+    
+    // if abreviado
+        // se houver apenas uma linha de código em cada bloco
+        possuiFaculdade = true;
+
+        if (possuiFaculdade)
+            console.log('Possui faculdade!');
+        else
+            console.log('Não possui faculdade!');
+
+    // exercícios
+        // Some 500 ao valor de scroll abaixo, atribuindo o novo valor a scroll
+            var scroll = 1000;
+            scroll += 500;
+        // Atribua true para a variável darCredito, caso o cliente possua carro e casa. E false caso o contrário.
+            var possuiCarro = true;
+            var possuiCasa = true;
+            var darCredito;
+
+            darCredito = (possuiCarro && possuiCasa) // ja retorna true ou false, não precisa do ternário
+
+// Escopo 
+    //Escopo de Função
+        function mostrarCarro() {
+            var carro = 'Fusca';
+            console.log(carro);
+        }
+        
+        mostrarCarro(); // Fusca no console
+        // console.log(carro); // Erro, carro is not defined
+      
+    // Escopo de Bloco (dentro de chaves do if, for loop...)
+        if (true) {
+            var cor = 'Azul';
+            console.log(cor); 
+        } else {
+            var nume = 10;
+        }
+
+        console.log(cor); // VAR vaza do escopo de bloco
+        console.log(nume); // vaza até mesmo se for falsa, aconteceu o hoisting e retornou undefined 
+    
+    //Const e let respeitam escopo de bloco
+        if (true) {
+            const mes = 'Dezembro';
+            let dia = 19;
+            console.log(mes, dia);
+        }
+        
+        // console.log(mes, dia); ERRO: mes e dia não definidos
+
+    // {} criam escopo de bloco, diferente do objeto = {}
+        {
+            var valor = 10000;
+            const seculo = 'XXI';
+        }
+
+        console.log(valor);
+        // console.log(seculo);
+    
+    // Const 
+        const primeiroMes = 'Janeiro';
+        //primeiroMes = 'Fevereiro'; // erro de atribuição na execução do js, por isso os códigos anteriores rodam
+        //const primeiroMes = 'Março'; // erro no hoisting, não aprece mais código no console
+
+        const data = {
+            dia: 28,
+            mes: 02,
+            ano: 2022,
+        }
+
+        data.ano = 2023; 
+        console.log(data);
+        // data = 10; ERRO de atribuição
+    
+    // exercicios
+        // Por qual motivo o código abaixo retorna com erros?
+        {
+            var cor = 'preto';
+            const marca = 'Fiat';
+            let portas = 4;
+        }
+        //console.log(var, marca, portas); // escreveu a keyword em vez do nome da variavel
+        //console.log(marca, portas); // fogem do escopo do bloco
+        
+        //Como corrigir o erro abaixo?
+            const dois = 2;
+            
+            function somarDois(x) {
+                return x + dois;
+            }
+            function dividirDois(x) {
+                return x / dois;
+            }
+            somarDois(4);
+            dividirDois(6);
+        
+        //O que fazer para total retornar 500?
+        const numero = 50;
+        
+        for(let numero = 0; numero < 10; numero++) {
+            console.log(numero);
+        }
+        
+        const total2 = 10 * numero;
+        console.log(total2);
+  
+
+
+
+
