@@ -25,8 +25,11 @@
         console.log(href);
 
     // Seleciona o primeiro elemento da página que possua a classe ativo
-        const elAtivo = document.querySelector('.ativo');
+        const elAtivo = document.querySelector('.ativo'); //seleciona apenas o primeiro elemento ativo
         console.log(elAtivo);
+
+        const ativos = document.querySelectorAll('.ativo'); //retona arraylike
+        console.log(ativos);
 
     // Retorne a linguagem do navegador
         const linguagem = navigator.language;
