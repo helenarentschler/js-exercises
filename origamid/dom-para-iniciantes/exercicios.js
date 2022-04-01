@@ -20,23 +20,24 @@
         });
     
     // Exercicios
-    // Retorne o url da página atual utilizando o objeto window
-        const url = window.location.href;
-        console.log(href);
+        // Retorne o url da página atual utilizando o objeto window
+            const url = window.location.href;
+            console.log(href);
 
-    // Seleciona o primeiro elemento da página que possua a classe ativo
-        const elAtivo = document.querySelector('.ativo'); //seleciona apenas o primeiro elemento ativo
-        console.log(elAtivo);
+        // Seleciona o primeiro elemento da página que possua a classe ativo
+            const elAtivo = document.querySelector('.ativo'); //seleciona apenas o primeiro elemento ativo
+            console.log(elAtivo);
 
-        const ativos = document.querySelectorAll('.ativo'); //retona arraylike
-        console.log(ativos);
+            const ativos = document.querySelectorAll('.ativo'); //retona arraylike
+            console.log(ativos);
 
-    // Retorne a linguagem do navegador
-        const linguagem = navigator.language;
-        console.log(linguagem);
+        // Retorne a linguagem do navegador
+            const linguagem = navigator.language;
+            console.log(linguagem);
 
-    // Retorne a largura da janela 
-        const larguraJanela = window.innerWidth;
-        console.log(larguraJanela);
-
+        // Retorne a largura da janela 
+            const larguraJanela = window.innerWidth;
+            console.log(larguraJanela);
+    
+    
         
