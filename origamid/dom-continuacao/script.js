@@ -311,6 +311,209 @@
             } else {
                 console.log('Tela é maior que 600px');
             }
+    
+    //exercicios
+        // Verifique a distância da primeira imagem em relação ao topo da página
+            const firstImg = document.querySelector('img')
+
+            const offsetTopo = firstImg.offsetTop;
+            console.log(offsetTopo);
+
+            const firstImgDist = firstImg.getBoundingClientRect();
+            console.log(firstImgDist.top);
+
+        // Retorne a soma da largura de todas as imagens
+            // codigo não funciona por si só porque o javascript carrega antes das imagens, então nada é selecionado
+            
+            function somaLarguraImagens() {
+                const allImg = document.querySelectorAll('img');
+                let soma = 0;
+
+                allImg.forEach((img) => {
+                    let imgWidth = img.offsetWidth;
+                    soma += imgWidth;
+                });
+                
+                console.log(soma);
+            }
+
+            // propriedade do objeto window a qual você pode atribuir uma função que só será executada depois da página html carregar completamente
+             window.onload = function() {
+                console.log('Página carregada');
+                somaLarguraImagens()
+             };
+             
+
+        // Verifique se os links da página possuem o mínimo recomendado para telas utilizadas com o dedo. (48px/48px de acordo com o google)
+            const aMobile = document.querySelectorAll('a');
+            
+            aMobile.forEach((a) => {
+                let aDimentions = a.getBoundingClientRect();
+                if (aDimentions.width >= 48 && aDimentions.height >= 48) {
+                    console.log(`${a} possui acessibilidade`);
+                } else {
+                    console.log(`${a} não possui acessibilidade`);
+                }
+                console.log(aDimentions.height);
+                console.log(aDimentions.width);
+            });
+
+        // Se o browser for menor que 720px, +adicione a classe menu-mobile ao menu
+            const isMobile = window.matchMedia('(max-width: 720px)').matches
+
+            if (isMobile) {
+                const menuEl = document.querySelector('.menu');
+                menuEl.classList.add('menu-mobile');
+                console.log('adicionada classe menu-mobile ao menu');
+            };
+
+// Eventos
+    // addEventListener: método do Element que recebe dois argumentos: um evento e uma função (callback que será executada logo após o evento ocorrer)
+        const fotos = document.querySelectorAll('.animais img');
+
+        // elemento.addEventListener(event, callback, options)
+        fotos[0].addEventListener('click', function(){
+            console.log('Clicou na raposa');
+        });
+
+        //ou
+
+        fotos[1].addEventListener('click', () => {
+            console.log('Clicou no esquilo');
+        });
+
+        //ou (Boa prática:)
+
+        function callback() {
+            console.log('Clicou no urso')
+        };
+
+        fotos[2].addEventListener('click', callback);
+    
+    // Event
+        // 1° Argumento do callback, quando ocorrer o evento é retornado este objeto event dinamicamente
+
+        function callbackClick(event) {
+            console.log(event);
+        };
+
+        fotos[3].addEventListener('click', callbackClick); // retorna o objeto click (é como se o evento fosse o argumento da função que retorna este objeto)
+
+        // Propriedades do Event
+            const animaisLista = document.querySelector('.animais-lista');
+
+            function callbackLista(event) {
+                console.log(this); //(ul selecionada)
+                console.log(event.currentTarget); //this (ul selecionada)
+                console.log(event.target); // exatamente o elemnto clicado (uma das img)
+                console.log(event.type); // string com o tipo de evento ('click')
+                console.log(event.path); // ()
+                console.log(this.getAttribute('class')); // retorna classes do animaisLista, posso usar todos metodos de elemento aqui também
+            };
+
+            animaisLista.addEventListener('click', callbackLista);
+        
+        // Metodos do Event
+            const aExterno = document.querySelector('a[href^="https"');
+
+            function callbackLinkExterno(event) {
+                event.preventDefault(); // previne o padrão do clique, no caso do link externo ele não irá redirecionar
+
+            };
+
+            aExterno.addEventListener('click', callbackLinkExterno);
+        
+        // Diferentes eventos
+            // podem ser relacionados a um element específico, ao document ou ao window, por exemplo.
+            const h1 = document.querySelector('h1');
+
+            function handleEvent(event) {
+                console.log(event.type, event);
+            };
+
+            // h1.addEventListener('click', handleEvent);
+            // h1.addEventListener('mouseenter', handleEvent); // passar o cursor
+            // h1.addEventListener('mousemove', handleEvent); // a cada micro movimento do cursor no elemento
+            // window.addEventListener('scroll', handleEvent); 
+            // window.addEventListener('resize', handleEvent); // redimensionar a tela
+            // window.addEventListener('keydown', handleEvent); // clicar numa tecla
+
+            //cada evento tem seus métodos e propriedades
+
+            // Manipular o keyboard (teclado)
+                
+                function handleKeyboard(event) {
+                    console.log(event.key) // tecla clicada
+                    if (event.key === 'Escape') {
+                        document.body.classList.toggle('noturno');
+                    }
+                };
+
+                window.addEventListener('keydown', handleKeyboard);
+        
+        // ForEach e eventos
+            const listas = document.querySelectorAll('ul');
+            
+            function listasHadler(event) {
+                const classes = event.currentTarget.getAttribute('class');
+                console.log(classes);
+            };
+
+            listas.forEach((lista) => {
+                lista.addEventListener('click', listasHadler);
+            });
+        
+        // Exercicios
+        
+        // Quando o usuário clicar nos links internos do site, adicione a classe ativo ao item clicado e remova dos demais itens caso eles possuam a mesma. Previna o comportamento padrão desses links
+            const aInternos = document.querySelectorAll('a[href^="#"]');
+
+            function handleLink(event) {
+                aInternos.forEach((link) => {
+                    link.classList.remove('ativo');
+                });
+                this.classList.add('ativo');
+                event.preventDefault();
+            };
+
+            aInternos.forEach((link) => {
+                link.addEventListener('click', handleLink)
+            });
+
+
+        // Selecione todos os elementos do site começando a partir do body, ao clique mostre exatamente quais elementos estão sendo clicados
+            const todosElementos = document.querySelectorAll('body > *');
+            console.log(todosElementos);
+
+            function mostrarElemento(event) {
+                console.log(event.target);
+                event.target.remove();
+            };
+
+            todosElementos.forEach((elemento) => {
+                elemento.addEventListener('click', mostrarElemento)
+            });
+
+
+        // Utilizando o código anterior, ao invés de mostrar no console,remova o elemento que está sendo clicado, o método remove() remove um elemento
+            
+
+
+        // Se o usuário clicar na tecla (t), aumente todo o texto do site. 
+            
+            function aumentarTexto(event) {
+                if(event.key === 't') {
+                    document.body.classList.toggle('bodyFonteMaior')
+                };
+            };
+
+            window.addEventListener('keydown', aumentarTexto);
+            
+
+
+        
+
+
 
 
         
