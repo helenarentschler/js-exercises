@@ -469,11 +469,11 @@
             const aInternos = document.querySelectorAll('a[href^="#"]');
 
             function handleLink(event) {
+                event.preventDefault();
                 aInternos.forEach((link) => {
                     link.classList.remove('ativo');
                 });
                 this.classList.add('ativo');
-                event.preventDefault();
             };
 
             aInternos.forEach((link) => {
@@ -482,12 +482,13 @@
 
 
         // Selecione todos os elementos do site começando a partir do body, ao clique mostre exatamente quais elementos estão sendo clicados
-            const todosElementos = document.querySelectorAll('body > *');
+            const todosElementos = document.querySelectorAll('body *');
             console.log(todosElementos);
 
             function mostrarElemento(event) {
-                console.log(event.target);
-                event.target.remove();
+                // console.log(event.currentTarget); // vai mostrar todo o caminho, ex: img > li > ul > section
+                // //event.currentTarget.remove() // remove toda a section
+                // event.target.remove(); // remove exatamente o que foi clicado
             };
 
             todosElementos.forEach((elemento) => {
@@ -503,11 +504,112 @@
             
             function aumentarTexto(event) {
                 if(event.key === 't') {
-                    document.body.classList.toggle('bodyFonteMaior')
+                    document.documentElement.classList.toggle('FonteMaior') // documentElement é o html
                 };
             };
 
             window.addEventListener('keydown', aumentarTexto);
+
+// Transversing e Manipulação
+    // Outer, innerHtml e innerText: propriedades manipuláveis do element (são writable: podem ter reatribuição de valor)
+        const primeiroH1 = document.querySelector('h1');
+        const listaAnimais = document.querySelector('.animais-lista');
+        const sectionAnimais = document.querySelector('.animais');
+        
+        console.log(primeiroH1.outerHTML) // traz as tags h1 e o texto interno
+        console.log(primeiroH1.innerHTML) // só o texto do titulo, por que não tem elementos filhos
+        console.log(primeiroH1.innerText) // só o texto
+        console.log(listaAnimais.outerHTML) // ul inteira
+        console.log(listaAnimais.innerHTML) // os li's
+        console.log(listaAnimais.innerText) // empty string: nenehum texto direto
+        console.log(typeof listaAnimais.innerHTML) // TUDO ACIMA RETORNA STRING
+        console.log(sectionAnimais.innerText) // traz só o texto da section, eliminando as tags
+
+        // h1.innerText = 'Animais Incríveis';
+        // h1.innerHTML = '<p>Olá mundo</p>';  // paragrafo substitui o conteudo INTERNO do h1
+        // h1.outerHTML = '<p> Olá mundo </p>'; // paragafo substitui o h1 inteiro
+    
+    // Transversing
+        // Navegar pelo DOM utilizando suas propriedades e métodos
+            
+            console.log(listaAnimais.parentElement) // section animais
+            console.log(listaAnimais.parentElement.parentElement) // body
+            console.log(listaAnimais.nextElementSibling) // div animais-descricao (pega o proximo elemento no mesmo nivel)
+            console.log(listaAnimais.previousElementSibling) // titulo (elemento anterior)
+            console.log(listaAnimais.children) // HTMLcollection com os filhos, todos os li's
+            console.log(listaAnimais.children[--listaAnimais.children.length]) // ultimo filho li
+
+            console.log(listaAnimais.querySelectorAll('li')); // NodeList com todos os li's
+            console.log(listaAnimais.querySelector('li:last-child')); //ultimo li
+        
+        // Element vs Node
+            //Element: tag html
+            console.log(listaAnimais.children);
+
+            //Node: tag html, texto, comentario, quebra de linha, 
+            console.log(listaAnimais.childNodes); //NodeList com 15 elementos
+            console.log(listaAnimais.previousSibling); // #text \n (quebra de linha)
+            console.log(listaAnimais.firstChild); // #text
+
+        // Manipulando Elementos (movendo)
+            const list = document.querySelector('.animais-lista');
+            const contact = document.querySelector('.contato');
+            const title = contact.querySelector('.titulo');
+            const faqTitle = document.querySelector('.faq h1');
+
+            // list.appendChild(title); // movendo titulo contato para o final da lista de animais
+            //contact.insertBefore(list, title); // movendo lista para antes do título da seção contato
+
+            // contact.removeChild(title); // removendo titulo de contato
+
+            //contact.replaceChild(faqTitle , title); // substitui o titulo por titulo do faq (que some)
+        
+        // Criando Elementos
+            const mapa = document.querySelector('.mapa'); //existe, mas ainda não foi inserido no DOM;
+
+            const novoh1 = document.createElement('h1');
+            novoh1.innerText = 'Novo título';
+            novoh1.classList.add('titulo');
+            mapa.appendChild(novoh1);
+
+            console.log(novoh1); 
+
+        // Clonando Elementos
+            const head1 = document.querySelector('h1');
+            const faqSection = document.querySelector('.faq');
+
+            const cloneh1 = head1.cloneNode(true); // true: clona os filhos, false: clona apenas a tag
+            faqSection.appendChild(cloneh1);
+        
+        // Exercicios
+            // Duplique o menu e adicione ele em copy
+                const copy = document.querySelector('.copy');
+                const cloneMenu = menu.cloneNode(true);
+
+                copy.appendChild(cloneMenu);
+
+            // Selecione o primeiro DT da dl de Faq
+                const primeiroDT = faq.querySelector('dl dt');
+                console.log(primeiroDT);
+
+            // Selecione o DD referente ao primeiro DT
+                const primeiroDD = primeiroDT.nextElementSibling;
+                console.log(primeiroDD);
+
+            // Substitua o conteúdo html de .faq pelo de .animais
+                faq.innerHTML = animaisSection.innerHTML;
+
+
+                
+
+
+
+
+            
+
+
+
+
             
 
 

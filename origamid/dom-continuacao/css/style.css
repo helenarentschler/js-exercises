@@ -20,6 +20,10 @@ body {
     grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
 
+html.FonteMaior {
+        font-size: 20px;
+    }
+
 .menu {
     grid-column: 3 / 5;
     margin-top: 2rem;
@@ -213,6 +217,4 @@ body {
         color: #faf6ed;
     }
 
-    .bodyFonteMaior {
-        font-size: 20px;
-    }
+    
