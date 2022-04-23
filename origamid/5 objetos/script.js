@@ -327,12 +327,510 @@ function Pessoa(nome, idade) {
         console.log(quantasTaxas);
   
   
-  
+// Objeto Number
+    console.log(Number.isNaN(NaN)); // true
+    console.log(Number.isInteger(20.20)) //false
+    console.log(Number.parseFloat('12.3')) // 12.3
+    console.log(parseFloat('12.3')) // também funciona
+    console.log(parseFloat('12.3 reais')) // também funciona
+    console.log(parseFloat('   12.3')) // também funciona
+    console.log(parseFloat('R$12.3')) // não funciona
+    console.log(parseInt('12.3')) // 12
+    console.log(parseInt(12.3)) // 12 - decimal por padrão
+    console.log(parseInt(12.3, 10)) // 12 (arg 10 - base decimal)
+
+    const numero = 2.657;
+    console.log(numero.toFixed()); //'3' - retorna string
+    console.log(numero.toFixed(2)) //'2.66'
+    console.log(+numero.toFixed());
+
+    const num = 29.87;
+
+    console.log(num.toString(10))// '29.87'
+
+    //formatação de número
+    
+    let preco2 = 59.49;
+    preco2 = preco2.toLocaleString('pt-BR', {style: 'currency', 
+                                             currency: 'BRL'}
+                                  );
+    console.log(preco2);
+
+    let preco3 = 60000015.89
+    preco3 = preco3.toLocaleString('en-US', {style: 'currency', 
+                                             currency: 'USD'}
+                                  );
+    console.log(preco3);
+
+//Objeto Math (objeto, não construtor)
+        console.log(Math.abs(-5)); //5
+        console.log(Math.ceil(3.3)); //4
+        console.log(Math.floor(3.9)); //3
+        console.log(Math.round(10.7)); //11
+        console.log(Math.max(1,2,3,4,5,6)); //6
+        console.log(Math.min(1,2,3,4,5,6)); //1
+        console.log(Math.random()); // aletorio de 0 a 1
+
+        //aleatorio de 0 a 10
+        console.log(Math.floor((Math.random()*10)));
+
+//exercicios
+    // Retorne um número aleatório
+    // entre 1050 e 2000
+    //formula: Math.floor(Math.random() * (max - min + 1)) + min;
+    console.log(Math.floor(Math.random() * (2000 - 1050 + 1)) + 1050);
+
+
+    // Retorne o maior número da lista abaixo
+    const numeros = '4, 5, 20, 8, 9';
+    const arrayNumeros = numeros.split(', ');
+    const numeroMax = Math.max(...arrayNumeros); // '...' (spread) passa cada item da array como argumento
+
+    console.log(numeroMax);
+
+
+    // Crie uma função para limpar os preços e retornar os números com centavos arredondados
+    // depois retorne a soma total
+    const listaPrecos2 = ['R$ 59,99', ' R$ 100,222', 'R$ 230  ', 'r$  200'];
+
+    totalPreco = 0;
+    function limparPreco(preco) {
+        preco = preco.toUpperCase().replace('R$', '').replace(',', '.')
+        preco = +Number.parseFloat(preco).toFixed(2);
+        return preco;
+    }
+    
+
+    listaPrecos2.forEach((preco) => {
+        totalPreco += limparPreco(preco);
+    });
+
+    console.log(totalPreco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}));
+
+// Objeto Array
+    // const carros = new Array('Corola', 'Mustang', 'Honda');
+
+    // carros[1] 
+    // carros[2] = 'Ferrari';
+    // carros[10] = 'Parati';
+    // carros.length; // 11
+    // console.log(carros);
+
+    //arraylike
+    const obj = {
+        0: 'Andre',
+        1: 'Helena',
+        2: 'Carlos',
+        length: 3
+    }
+
+    const arrayObj = Array.from(obj);
+    console.log(arrayObj);
+    console.log(Array.isArray(obj))
+    console.log(Array.of(1,2,3,4));
+    console.log(Array.of(10));
+    console.log(new Array(5));
+    console.log(Array(5));
+    console.log(Array(1,2,3,4));
+
+    //Métodos modificadores
+    const instrumentos = ['Guitarra', 'Baixo', 'Violão'];
+    instrumentos.sort() // ordem alfabetica
+
+    console.log(instrumentos);
+
+    //Unshift: coloca no começo e retorna lenght
+    //Push: coloca no final e retorna length
+
+    const carros = ['Ford', 'Fiat', 'VW'];
+
+    console.log(carros.unshift('Astra', 'Ferrari'));
+    console.log(carros.push('Uno'));
+
+    console.log(carros);
+
+
+    //Shift: tira do começo e retorna o item
+    //Push: tira do final e retorna o item
+    console.log(carros.shift());
+    console.log(carros.pop());
+
+    console.log(carros);
+
+    console.log(carros.reverse());
+
+    console.log(carros);
+
+    console.log(carros.splice(3, 1, 'Kia', 'Logan'))
+
+    console.log(carros);
+
+    const itens = ['item0', 'item1', 'item2', 'item3', 'item4'];
+    console.log(itens);
+    itens.copyWithin(3,0,2);
+    console.log(itens);
+
+    const frutas = ['banana', 'laranja', 'maçã', 'mamão'];
+    console.log(frutas.fill('abacate', 1, 3));
+
+    //métodos de acesso
+    const transporte1 = ['Barco', 'Aviao'];
+    const transporte2 = ['Carro', 'Moto'];
+
+    const meios = transporte1.concat(transporte2);
+
+    console.log(meios);
+
+    const maisMeios = [].concat(transporte1, transporte2, 'Moto');
+    console.log(maisMeios);
+
+    const linguagens = ['html', 'css', 'js', 'php', 'python', 'js'];
+
+    console.log(linguagens.includes('html'))
+    console.log(linguagens.indexOf('php'))
+    console.log(linguagens.indexOf('js'))
+    console.log(linguagens.lastIndexOf('js'))
+
+    console.log(linguagens.slice(3));
+    console.log(linguagens.slice(2,4));
+
+    const cloneLinguagens = linguagens.slice();
+
+    //Exercícios
+    
+    const comidas = ['Pizza', 'Frango', 'Carne', 'Macarrão'];
+    // Remova o primeiro valor de comidas e coloque em uma variável
+    const pizza = comidas.shift();
+    // Remova o último valor de comidas e coloque em uma variável
+    const macarrao = comidas.pop();
+    // Adicione 'Arroz' ao final da array
+    comidas.push('Arroz');
+    // Adicione 'Peixe' e 'Batata' ao início da array
+    comidas.unshift('Peixe', 'Batata');
+
+    console.log(comidas);
+
+    const estudantes = ['Marcio', 'Brenda', 'Joana', 'Kleber', 'Julia'];
+    // Arrume os estudantes em ordem alfabética
+    estudantes.sort();
+    // Inverta a ordem dos estudantes
+    estudantes.reverse();
+    // Verifique se Joana faz parte dos estudantes
+    console.log(estudantes.includes('Joana'));
+    // Verifique se Juliana faz parte dos estudantes
+    console.log(estudantes.includes('Juliana'));
+    console.log(estudantes);
+
+    let html2 = `<section>
+                <div>Sobre</div>
+                <div>Produtos</div>
+                <div>Contato</div>
+                </section>`
+    // Substitua section por ul e div com li,
+    // utilizando split e join
+    html2 = html2.split('section').join('ul').split('div').join('li');
+    console.log(html2);
+
+    const carros2 = ['Ford', 'Fiat', 'VW', 'Honda'];
+    // Remova o último carro, mas antes de remover salve a array original em outra variável
+    const carrosCopia = carros2.slice();
+
+    carros2.pop();
+
+    console.log(carros2);
+    console.log(carrosCopia);
+
+//Array e Iteração
+    const nomes = ['amanda', 'julia', 'carla', 'ana']
+
+    //array é uma referncia a nomes, se modificar modifico nomes também 
+    // item não modifica a array
+    nomes.forEach((nome, index, array) =>{
+        array[index] = 'nome é ' + nome;
+    });
+
+    console.log(nomes);
+
+    const retornoForEach = nomes.forEach((nome) => {
+        console.log(nome);
+    });
+    
+    console.log(retornoForEach); //undefined
+
+    const flores = ['tulipa', 'rosa', 'girassol', 'copo de leite']
+
+    //map retorna uma array com o retorno de cada iteração
+    const retornoMap = flores.map((flor) => {
+        return `minha flor preferida é ${flor}.`
+    });
+
+    console.log(flores);
+    console.log(retornoMap);
+
+    const numbers = [1, 2, 3, 4, 5];
+                                // sem chaves e 1 linha não precisa da palavra return
+    const numbersX2 = numbers.map(n => n*2);
+    console.log(numbersX2);
+
+    const aulas = [
+        {
+          nome: 'HTML 1',
+          min: 15
+        },
+        {
+          nome: 'HTML 2',
+          min: 10
+        },
+        {
+          nome: 'CSS 1',
+          min: 20
+        },
+        {
+          nome: 'JS 1',
+          min: 25
+        },
+      ]
+
+      const tempoAulas = aulas.map(aula => aula.min);
+      console.log(tempoAulas)
+
+      //ou
+      
+      function nomeAula(aula) {
+        return aula.nome;
+      }
+
+      const nomeAulas = aulas.map(nomeAula);
+      console.log(nomeAulas)
+
+      //ou
+
+      const aulasNome = function(aula) {
+          return aula.nome;
+      };
+
+      const arrayAulas = aulas.map(aulasNome);
+      console.log(arrayAulas);
+
+      //ou
+
+      const aulasTempo = aula => aula.min;
+      const arrayTempo = aulas.map(aulasTempo);
+      console.log(arrayTempo);
+
+    // reduce
+        const nums = [10, 25, 30]
+
+        const reduceValor = nums.reduce((acumulador, item, index) =>{
+            console.log(`${index}: ${item} ${acumulador}`);
+            return acumulador + item;
+        }, 0);
+
+        console.log(reduceValor);
+
+        const videos = [
+            {
+            nome: 'HTML 1',
+            min: 15
+            },
+            {
+            nome: 'HTML 2',
+            min: 10
+            },
+            {
+            nome: 'CSS 1',
+            min: 20
+            },
+            {
+            nome: 'JS 1',
+            min: 25
+            },
+        ]
+
+        const listaVideos = videos.reduce((videoAnterior, video, index) => {
+            videoAnterior[index] = video.nome;
+            return videoAnterior;
+        }, {} );
+        //acumulador é um objeto vazio, que vai recebendo uma propriedade a cada teração de acordo com o index do array
+
+        console.log(listaVideos);
+
+        const fruits = ['uva', 'pera', 'banana'];
+
+        const stringFruits = fruits.reduce((acc, fruta, index) => {
+            console.log(index);
+            return `${acc} ${fruta}`
+        });
+
+        console.log(stringFruits);
+
+        // 1°
+        // acc: 'uva'
+        // return 'uva pera'
+
+        //2°
+        // acc: 'uva pera'
+        // return: 'uva pera banana'
+
+    //itera ao contrario, comaçando do index 2
+        const stringFruits2 = fruits.reduceRight((acc, fruta, index) => {
+            console.log(index);
+            return `${acc} ${fruta}`
+        });
+
+        console.log(stringFruits2);
+
+    //some() - faz verificaçao pelo array e retorna true ou false dependendo da expressão
+        fruits.reverse();
+
+        const temUva = fruits.some((fruta) => {
+            return fruta === 'uva';
+        });
+
+        console.log(temUva); //TRUE
+        
+    //find findIndex
+        const retorneUva = fruits.find((fruta) => {
+            return fruta === 'uva';
+        });
+
+        console.log(retorneUva);
+
+        const retorneIndexUva = fruits.findIndex((fruta) => {
+            return fruta === 'uva';
+        });
+
+        console.log(retorneIndexUva);
+
+        fruits.fill('abacate')
+        
+    //every 
+
+        const todosAbacate = fruits.every((fruta) => {
+            return fruta === 'abacate';
+        });
+
+        console.log(todosAbacate);
+
+        const numerosArray = [5, 3, 6, 9, 19, 40];
+
+        const maiorQue3 = numerosArray.every(n => n > 3);
+        console.log(maiorQue3)
+
+    //filter() - retorna array com todos que são truthy
+
+        const items = ['Banana', undefined, null, '', 'Uva', 0, 'Maçã'];
+
+        const arrayItems = items.filter((item) => {
+            return item
+        });
+
+        console.log(arrayItems);
+
+        const numeros_array = [6, 43, 22, 88, 101, 29];
+
+        const maioresQue30 = numeros_array.filter(n => n > 30);
+
+        console.log(maioresQue30);
+
+        const classes = [
+            {
+              nome: 'HTML 1',
+              min: 15
+            },
+            {
+              nome: 'HTML 2',
+              min: 10
+            },
+            {
+              nome: 'CSS 1',
+              min: 20
+            },
+            {
+              nome: 'JS 1',
+              min: 25
+            },
+          ]
+          
+          const classesMaisQue20 = classes.filter(classe => classe.min >= 20);
+          console.log(classesMaisQue20);
+
+    //exercicios
+        // Selecione cada curso e retorne uma array com objetos contendo o título, descricao, aulas e horas de cada curso
+          const cursos = document.querySelectorAll('.curso');
+          const arrayCursos = Array.from(cursos);
+
+          
+          const listaCursos = arrayCursos.map((section) => {
+              const curso = {
+                titulo: section.querySelector('h1').innerText,
+                descricao: section.querySelector('p').innerText,
+                aulas: section.querySelector('.aulas').innerText,
+                duracao: section.querySelector('.horas').innerText,
+              }
+              return curso;
+          });
+
+          console.log(listaCursos);
+
+        // Retorne uma lista com os
+        // números maiores que 100
+        const numeros2 = [3, 44, 333, 23, 122, 322, 33];
+        const arraynums = numeros2.filter(n => n > 100);
+        console.log(arraynums);
+
+
+        // Verifique se Baixo faz parte da lista de instrumentos e retorne true
+        const instruments = ['Guitarra', 'Baixo', 'Bateria', 'Teclado']
+        const temBaixo = instruments.some((item) => item === 'Baixo');
+        console.log(temBaixo);
+
+        // Retorne o valor total das compras
+        const compras = [
+            {
+                item: 'Banana',
+                preco: 'R$ 4,99'
+            },
+            {
+                item: 'Ovo',
+                preco: 'R$ 2,99'
+            },
+            {
+                item: 'Carne',
+                preco: 'R$ 25,49'
+            },
+            {
+                item: 'Refrigerante',
+                preco: 'R$ 5,35'
+            },
+            {
+                item: 'Quejo',
+                preco: 'R$ 10,60'
+            }
+        ]
+
+        const totalCompras = compras.reduce((acc, compra) =>{
+            compra = +compra.preco.replace('R$ ', '').replace(',', '.');
+            return acc + compra;
+        }, 0);
+
+        console.log(compras);
+        console.log(totalCompras);
+
+
+
+
+
+
+
 
 
         
 
-      
+    
+
+
+  
     
 
 
