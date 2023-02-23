@@ -203,7 +203,7 @@
     //className: método antigo de add classes
         console.log(menu.className); // retorna string com todas as classes;
         // menu.className = 'ativo'; //sobrescreve todas as classes como ativo
-        menu.className += ' verde'; //precisa te o espaço antes
+        menu.className += ' verde'; //precisa ter o espaço antes
 
     //attributes
         const animaisSection = document.querySelector('.animais');

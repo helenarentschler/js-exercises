@@ -18,7 +18,7 @@
         bloco */
 
     //Hoisting
-        console.log(comida); // retorna undefined, e não erro, pois num já existe (Hoisting)
+        console.log(comida); // retorna undefined, e não erro, pois comida já existe (Hoisting)
         var comida = 'pizza'; // atribuição só ocorre aqui
         console.log(comida);
 
@@ -51,6 +51,8 @@
     var email;
     console.log(typeof email); //undefined
     var resposta = null;
+    var nulo = null;
+    console.log(typeof nulo);
     console.log(typeof resposta); //object
     var simbolo = Symbol();
     console.log(typeof simbolo); 
@@ -62,7 +64,9 @@
         var nomeCompleto = nome + ' ' + sobrenome;
         console.log(nomeCompleto)
         console.log(nomeCompleto + ' tem ' + idade +' anos'); // string + qualquer coisa retorna string
-        console.log("Esse é o \"grande\" momento") // Esse é o "grande" momento
+        console.log("Esse é o \"grande\" momento") // Esse é o "grande" momento 
+
+        console.log("Relembrando pela "+ 3 +" vez concatenaçao");
 
     //template string
         var gols = 1000;
@@ -76,6 +80,10 @@
             frase4 = "It's time!";
 
         console.log(frase2, frase3, frase4);
+
+        let quant = 4;
+        let string = `Brasil fez ${quant} gols contra a Coreia`;
+        console.log(string);
     
     //numeros
         var exp = 2e10; //20000000000
@@ -145,7 +153,7 @@
                     console.log(peso)
 
 // Condicionais e Booleans
-    var possuiFaculdade = false;
+    var possuiFaculdade = true;
 
     if (possuiFaculdade) {
         console.log('Possui faculdade');
@@ -172,16 +180,18 @@
     // Valores FALSY: retornam false quando verificados em uma expressão booleana
     // São eles: false, 0, NaN, nulll, undefined, '', "", ``
     // todos os outros valores são truthy
-    var nome; 
-    if (nome) {
-        console.log(nome);
+    var temperatura; 
+    if (temperatura) {
+        console.log(temperatura);
     } else {
-        console.log("nome não existe"); // como '' retorna falso, esse bloco executará
+        console.log("temperatura não existe"); // como '' retorna falso, esse bloco executará
     }
 
     //negação
         if (!possuiGraduacao) {
             console.log('Não possui graduação');
+        } else {
+            console.log("possui grad")
         }
 
         // conferir se um valor é truthy ou falsy: !!
@@ -349,7 +359,7 @@
                 console.log('Tudo bem?');
             };
 
-            // addEventListener('click', mostrarTudoBem);
+            //addEventListener('click', mostrarTudoBem);
 
     //retorno - se não definir return, retorna undefined
 
@@ -844,14 +854,14 @@
             dividirDois(6);
         
         //O que fazer para total retornar 500?
-        const numero = 50;
+        // const numero = 50;
         
-        for(let numero = 0; numero < 10; numero++) {
-            console.log(numero);
-        }
+        // for(let numero = 0; numero < 10; numero++) {
+        //     console.log(numero);
+        // }
         
-        const total2 = 10 * numero;
-        console.log(total2);
+        // const total2 = 10 * numero;
+        // console.log(total2);
   
 
 

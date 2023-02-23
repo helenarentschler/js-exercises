@@ -11,6 +11,22 @@ function Carro(marcaAtribuida, precoAtribuido) {
 const honda = new Carro('Honda', 2000);
 const fiat = new Carro('Fiat', 3000);
 
+function Animal(especie, idade) {
+    this.especie = especie;
+    this.idade = idade;
+    this.anoNascimento = function() {
+        const dataAtual = new Date();
+        const anoAtual = dataAtual.getFullYear();
+        return anoAtual - idade;
+    };
+}
+
+const gorila = new Animal('Gorila gorila', 20); 
+
+console.log('Nasceu em: ' + gorila.anoNascimento());
+
+
+
 // Exercícios
 // Transforme o objeto abaixo em uma Constructor Function
 function Pessoa(nome, idade) {
@@ -53,9 +69,11 @@ function Pessoa(nome, idade) {
 
     const sectionParagraphs = new Dom('section p');
 
-//Prototype - propriedade de uma função que é na verdade um objeto.
-    //propriedade APENAS de funções
+    sectionParagraphs.addClass('ativo');
+    sectionParagraphs.removeClass('ativo');
 
+//Prototype - propriedade de uma função, que retorna um objeto. Quando adicionamos prop e metodos no prototipo de um construtor e nao no construtor em si, evitamos que crie-se mais uma funçao quando o construtor é instanciado. 
+    //propriedade APENAS de funções
     function Pessoa(nome, idade) {
         this.nome = nome;
         this.idade = idade;
@@ -68,7 +86,7 @@ function Pessoa(nome, idade) {
     }
 
     console.log(Pessoa.prototype); // object 
-    console.log(Pessoa.prototype.andar()); // object 
+    console.log(Pessoa.prototype.andar()); 
     console.log(andre.prototype); //undefined, andre não é função
     console.log(andre);
     //objeto criado usando o construtor tem acesso as propriedades do prototipo do construtor
@@ -757,7 +775,8 @@ function Pessoa(nome, idade) {
 
     //exercicios
         // Selecione cada curso e retorne uma array com objetos contendo o título, descricao, aulas e horas de cada curso
-          const cursos = document.querySelectorAll('.curso');
+        
+        const cursos = document.querySelectorAll('.curso');
           const arrayCursos = Array.from(cursos);
 
           
@@ -816,6 +835,72 @@ function Pessoa(nome, idade) {
 
         console.log(compras);
         console.log(totalCompras);
+
+
+// Objeto Function
+
+function somar(n1, n2) {
+    return n1 + n2;
+}
+
+console.log(somar.length); //n de arg
+
+console.log(somar.name);
+
+const carro = {
+    marca: 'Renault',
+    ano: 2010,
+}
+
+function descricaoCarro(velocidade) {
+    console.log(`marca: ${this.marca} ano: ${this.ano} velocidade: ${velocidade}`);
+}
+
+//arg1: objeto ao qual a funçao faz ref, arg2: padrao para a funçao
+descricaoCarro.call(carro, 100);
+
+const modelos = ['fiat', 'honda', 'toyota'];
+
+const frutas2 =  ['maça', 'morango', 'laranja', 'melancia', 'mamao'];
+
+modelos.forEach.call(frutas2, (fruta) => {
+    console.log(fruta);
+})
+
+function Dom2(selector) {
+    this.element = document.querySelector(selector);
+}
+
+Dom2.prototype.adcClasse = function(classe) {
+    this.element.classList.add(classe);
+}
+
+const listaUl = new Dom2('ul');
+
+listaUl.adcClasse('ativo');
+
+
+
+
+        
+
+        
+
+        
+          
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 
